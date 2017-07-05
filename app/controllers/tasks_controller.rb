@@ -1,12 +1,11 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update,:destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   def index
     @tasks = Task.all
   end
 
   def show
-    
   end
 
   def new
@@ -27,11 +26,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
-    
     if @task.update(task_params)
       flash[:success] = 'Taskが更新されました'
       redirect_to @task
@@ -55,7 +52,7 @@ class TasksController < ApplicationController
   end
   
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content, :title)
   end
   
 end
